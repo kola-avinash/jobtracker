@@ -11,17 +11,16 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 import environ
-env = environ.Env()
-environ.Env.read_env()
 
-# Add in settings.py
-GOOGLE_CLIENT_ID = '341970476606-qmjsdgj9qjfpqkc4lkfaacil1j9jrkde.apps.googleusercontent.com'
-GOOGLE_CLIENT_SECRET = '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'
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+GOOGLE_CLIENT_ID = env('GOOGLE_CLIENT_ID')
+GOOGLE_CLIENT_SECRET = env('GOOGLE_CLIENT_SECRET')
 
 
 # Quick-start development settings - unsuitable for production
