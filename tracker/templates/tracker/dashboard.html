@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Dashboard</title></head>
+<body>
+  <h1>Your Job Applications</h1>
+  <table border="1">
+    <thead>
+      <tr><th>Subject</th><th>From</th><th>Date</th></tr>
+    </thead>
+    <tbody>
+      {% for email in emails %}
+      <tr>
+        <td>{{ email.Subject }}</td>
+        <td>{{ email.From }}</td>
+        <td>{{ email.Date }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
